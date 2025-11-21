@@ -95,32 +95,32 @@ class AuthSystem {
             <div class="container">
                 <header>
                     <div class="user-info">
-                        <h1>🛒 Data Formatter</h1>
-                        <p>Selamat datang di <strong>Obanganteng System</strong></p>
+                        <h1>MINUS ngomong NGEPLUS meneng</h1>
+                        <p>Selamat datang di <strong>Oban Ganteng Max</strong></p>
                     </div>
                     <button onclick="auth.logout()" class="logout-btn">🚪 Logout</button>
                 </header>
 
                 <div class="main-content">
                     <div class="input-section">
-                        <h3>Masukkan Data Mentah:</h3>
-                        <textarea id="rawData" placeholder="Paste data transaksi mentah di sini..."></textarea>
-                        <button onclick="formatData()" class="btn-format">🚀 Rapikan Data</button>
-                        <button onclick="clearData()" class="btn-clear">🗑️ Hapus</button>
+                        <h3>Tempel na ng kene:</h3>
+                        <textarea id="rawData" placeholder="Sing mau di copy, paste ng kene ya..."></textarea>
+                        <button onclick="formatData()" class="btn-format">Yuh Detung</button>
+                        <button onclick="clearData()" class="btn-clear">Hapus</button>
                     </div>
 
                     <div class="output-section">
-                        <h3>Hasil yang Dirafikan:</h3>
+                        <h3>kie cuma hasil ndah rapi tok:</h3>
                         <div class="output-controls">
-                            <button onclick="copyToClipboard()" class="btn-copy">📋 Copy</button>
-                            <button onclick="downloadAsText()" class="btn-download">💾 Download</button>
+                            <button onclick="copyToClipboard()" class="btn-copy">mbokan pan Copy maning</button>
+                            <button onclick="downloadAsText()" class="btn-download">mbokan pan download</button>
                         </div>
                         <div id="formattedResult" class="formatted-result"></div>
                     </div>
                 </div>
 
                 <div class="stats-section">
-                    <h3>📊 Statistik</h3>
+                    <h3>📊Lah kie baru hasil akhir. pimen? minus apa ngeplus?</h3>
                     <div id="statistics" class="statistics"></div>
                 </div>
             </div>
