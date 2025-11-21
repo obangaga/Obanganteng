@@ -1,1 +1,42 @@
-hhjjj
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Formatter - Rapikan Data Transaksi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛒 Data Formatter</h1>
+            <p>Rapikan data transaksi mentah menjadi laporan yang terstruktur</p>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section">
+                <h3>Masukkan Data Mentah:</h3>
+                <textarea id="rawData" placeholder="Paste data transaksi mentah di sini..."></textarea>
+                <button onclick="formatData()" class="btn-format">🚀 Rapikan Data</button>
+                <button onclick="clearData()" class="btn-clear">🗑️ Hapus</button>
+            </div>
+
+            <div class="output-section">
+                <h3>Hasil yang Dirafikan:</h3>
+                <div class="output-controls">
+                    <button onclick="copyToClipboard()" class="btn-copy">📋 Copy</button>
+                    <button onclick="downloadAsText()" class="btn-download">💾 Download</button>
+                </div>
+                <div id="formattedResult" class="formatted-result"></div>
+            </div>
+        </div>
+
+        <div class="stats-section">
+            <h3>📊 Statistik</h3>
+            <div id="statistics" class="statistics"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
