@@ -98,7 +98,7 @@ class AuthSystem {
                         <h1>MINUS ngomong NGEPLUS meneng</h1>
                         <p>Selamat datang di <strong>Oban Ganteng Max</strong></p>
                     </div>
-                    <button onclick="auth.logout()" class="logout-btn">🚪 Logout</button>
+                    <button onclick="auth.logout()" class="logout-btn">🚪Metu</button>
                 </header>
 
                 <div class="main-content">
@@ -120,7 +120,7 @@ class AuthSystem {
                 </div>
 
                 <div class="stats-section">
-                    <h3>📊Lah kie baru hasil akhir. pimen? minus apa ngeplus?</h3>
+                    <h3>Lah kie baru hasil akhir. pimen? minus apa ngeplus?</h3>
                     <div id="statistics" class="statistics"></div>
                 </div>
             </div>
