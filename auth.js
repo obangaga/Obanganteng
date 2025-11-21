@@ -2,7 +2,7 @@
 class AuthSystem {
     constructor() {
         // ⚠️ GANTI PASSWORD INI DENGAN YANG LEBIH KUAT!
-        this.appPassword = 'obanganteng2024'; 
+        this.appPassword = 'oban1928'; 
         this.init();
     }
 
@@ -20,8 +20,8 @@ class AuthSystem {
             <div class="login-container">
                 <div class="login-box">
                     <div class="login-header">
-                        <h1>🔐 OBANGANTENG</h1>
-                        <p>Data Formatter System</p>
+                        <h1>🔐 OBAN GANTENG MAXIMAL</h1>
+                        <p>endah adil tak gawekna aplikasi ngetung</p>
                     </div>
                     
                     <div class="input-group">
@@ -67,10 +67,10 @@ class AuthSystem {
 
         if (input === this.appPassword) {
             localStorage.setItem('obang_authenticated', 'true');
-            this.showMessage('✅ Login berhasil! Mengalihkan...', 'success');
+            this.showMessage('✅ NAH IYA BENER..', 'success');
             setTimeout(() => this.showMainApp(), 1000);
         } else {
-            this.showMessage('❌ Password salah!', 'error');
+            this.showMessage('❌ SALAH , AJA NGAWAG !', 'error');
             // Clear password field
             document.getElementById('appPassword').value = '';
             document.getElementById('appPassword').focus();
