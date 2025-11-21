@@ -205,14 +205,78 @@ textarea:focus {
 /* LOGIN STYLES - TAMBAHAN DI BAWAH YANG SUDAH */
 /* ============================================ */
 
+/* Login Container dengan Background Image Custom */
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     padding: 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Background Image dari file lokal */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                      url('login-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Overlay untuk membuat text lebih readable */
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.login-box {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    position: relative;
+    z-index: 2;
+}
+
+/* Improve text contrast */
+.login-header h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 2em;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.login-header p {
+    color: #5d6d7e;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.input-group label {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.demo-info {
+    background: rgba(255, 243, 205, 0.8);
+    border-left: 4px solid #ffc107;
+}
+
+.demo-info p {
+    color: #856404;
+    margin: 0;
 }
 
 .login-box {
