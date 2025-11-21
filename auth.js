@@ -20,29 +20,29 @@ class AuthSystem {
             <div class="login-container">
                 <div class="login-box">
                     <div class="login-header">
-                        <h1>🔐 OBAN GANTENG MAXIMAL</h1>
-                        <p>endah adil tak gawekna aplikasi ngetung</p>
+                        <h1>OBAN GANTENG MAXIMAL</h1>
+                        <p>Endah adil tak gawekna aplikasi ngetung</p>
                     </div>
                     
                     <div class="input-group">
-                        <label for="appPassword">Password Aplikasi:</label>
+                        <label for="appPassword">Tapi Ana Passworde:</label>
                         <input 
                             type="password" 
                             id="appPassword" 
-                            placeholder="Masukkan password aplikasi" 
+                            placeholder="masukan password Ababil42" 
                             required
                             autocomplete="off"
                         >
                     </div>
 
                     <button onclick="auth.checkAppPassword()" class="login-btn">
-                        🚀 Masuk ke Sistem
+                        🚀 Yuh Manjing
                     </button>
 
                     <div class="login-message" id="loginMessage"></div>
 
                     <div class="demo-info">
-                        <p><small>Hubungi administrator untuk mendapatkan password</small></p>
+                        <p><small>Coba takon oban password e apa</small></p>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@ class AuthSystem {
             this.showMessage('✅ NAH IYA BENER..', 'success');
             setTimeout(() => this.showMainApp(), 1000);
         } else {
-            this.showMessage('❌ SALAH , AJA NGAWAG !', 'error');
+            this.showMessage('❌ SALAH, AJA NGAWAG !', 'error');
             // Clear password field
             document.getElementById('appPassword').value = '';
             document.getElementById('appPassword').focus();
