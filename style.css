@@ -447,3 +447,39 @@ header {
     letter-spacing: 2px;
     font-family: 'Courier New', monospace;
 }
+/* Smooth transition untuk background */
+.login-container {
+    transition: background-image 0.5s ease-in-out;
+}
+
+/* Hover effect untuk login box */
+.login-box:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+/* Loading state untuk background */
+.login-container.loading::after {
+    content: 'Loading...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 18px;
+    z-index: 3;
+}
+
+/* Responsive background */
+@media (max-width: 768px) {
+    .login-container {
+        background-attachment: scroll;
+        background-position: center center;
+    }
+    
+    .login-box {
+        margin: 20px;
+        padding: 30px 20px;
+    }
+}
