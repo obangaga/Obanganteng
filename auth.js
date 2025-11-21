@@ -1,39 +1,21 @@
-// Simple Frontend Authentication System
+// Secure Single Password Authentication for Obanganteng
 class AuthSystem {
     constructor() {
-        this.users = [
-            {
-                username: 'admin',
-                password: 'admin123',
-                name: 'Administrator'
-            },
-            {
-                username: 'obang',
-                password: 'obang123', 
-                name: 'Obanganteng'
-            },
-            {
-                username: 'user',
-                password: 'user123',
-                name: 'Regular User'
-            }
-        ];
-        this.currentUser = null;
+        // ⚠️ GANTI PASSWORD INI DENGAN YANG LEBIH KUAT!
+        this.appPassword = 'obanganteng2024'; 
         this.init();
     }
 
     init() {
-        // Check if user is already logged in
-        const savedUser = localStorage.getItem('obanganteng_user');
-        if (savedUser) {
-            this.currentUser = JSON.parse(savedUser);
+        // Check if already authenticated
+        if (localStorage.getItem('obang_authenticated') === 'true') {
             this.showMainApp();
         } else {
-            this.showLoginForm();
+            this.showPasswordPrompt();
         }
     }
 
-    showLoginForm() {
+    showPasswordPrompt() {
         document.body.innerHTML = `
             <div class="login-container">
                 <div class="login-box">
@@ -42,78 +24,56 @@ class AuthSystem {
                         <p>Data Formatter System</p>
                     </div>
                     
-                    <form id="loginForm" class="login-form">
-                        <div class="input-group">
-                            <label for="username">Username:</label>
-                            <input 
-                                type="text" 
-                                id="username" 
-                                placeholder="Masukkan username" 
-                                required
-                            >
-                        </div>
-                        
-                        <div class="input-group">
-                            <label for="password">Password:</label>
-                            <input 
-                                type="password" 
-                                id="password" 
-                                placeholder="Masukkan password" 
-                                required
-                            >
-                        </div>
+                    <div class="input-group">
+                        <label for="appPassword">Password Aplikasi:</label>
+                        <input 
+                            type="password" 
+                            id="appPassword" 
+                            placeholder="Masukkan password aplikasi" 
+                            required
+                            autocomplete="off"
+                        >
+                    </div>
 
-                        <button type="submit" class="login-btn">
-                            🚀 Login ke Sistem
-                        </button>
-                    </form>
+                    <button onclick="auth.checkAppPassword()" class="login-btn">
+                        🚀 Masuk ke Sistem
+                    </button>
 
                     <div class="login-message" id="loginMessage"></div>
 
-                    <div class="demo-accounts">
-                        <h4>🔑 Akun Demo:</h4>
-                        <div class="account-list">
-                            <div><strong>admin</strong> / admin123</div>
-                            <div><strong>obang</strong> / obang123</div>
-                            <div><strong>user</strong> / user123</div>
-                        </div>
+                    <div class="demo-info">
+                        <p><small>Hubungi administrator untuk mendapatkan password</small></p>
                     </div>
                 </div>
             </div>
         `;
 
-        document.getElementById('loginForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.handleLogin();
+        // Enter key support
+        document.getElementById('appPassword').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                this.checkAppPassword();
+            }
         });
     }
 
-    handleLogin() {
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+    checkAppPassword() {
+        const input = document.getElementById('appPassword').value;
         const messageDiv = document.getElementById('loginMessage');
 
-        // Simple validation
-        if (!username || !password) {
-            this.showMessage('Username dan password harus diisi!', 'error');
+        if (!input) {
+            this.showMessage('Password harus diisi!', 'error');
             return;
         }
 
-        // Find user
-        const user = this.users.find(u => 
-            u.username === username && u.password === password
-        );
-
-        if (user) {
-            this.currentUser = user;
-            localStorage.setItem('obanganteng_user', JSON.stringify(user));
-            this.showMessage('Login berhasil! Mengalihkan...', 'success');
-            
-            setTimeout(() => {
-                this.showMainApp();
-            }, 1000);
+        if (input === this.appPassword) {
+            localStorage.setItem('obang_authenticated', 'true');
+            this.showMessage('✅ Login berhasil! Mengalihkan...', 'success');
+            setTimeout(() => this.showMainApp(), 1000);
         } else {
-            this.showMessage('Username atau password salah!', 'error');
+            this.showMessage('❌ Password salah!', 'error');
+            // Clear password field
+            document.getElementById('appPassword').value = '';
+            document.getElementById('appPassword').focus();
         }
     }
 
@@ -136,7 +96,7 @@ class AuthSystem {
                 <header>
                     <div class="user-info">
                         <h1>🛒 Data Formatter</h1>
-                        <p>Selamat datang, <strong>${this.currentUser.name}</strong>!</p>
+                        <p>Selamat datang di <strong>Obanganteng System</strong></p>
                     </div>
                     <button onclick="auth.logout()" class="logout-btn">🚪 Logout</button>
                 </header>
@@ -168,15 +128,13 @@ class AuthSystem {
 
         // Re-initialize your existing functions
         setTimeout(() => {
-            // Your existing formatData, clearData, etc functions will work here
-            // Make sure they are available in global scope
+            // Your existing functions will work here
         }, 100);
     }
 
     logout() {
-        localStorage.removeItem('obanganteng_user');
-        this.currentUser = null;
-        this.showLoginForm();
+        localStorage.removeItem('obang_authenticated');
+        this.showPasswordPrompt();
     }
 }
 
