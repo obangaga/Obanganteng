@@ -127,7 +127,6 @@ function generateFormattedOutput(transactions) {
     output += `## **TOTAL KESELURUHAN**\n`;
     output += `- **Total Transaksi**: **Rp ${formatCurrency(grandTotalAll)}**\n`;
     output += `- **Jumlah Transaksi**: ${transactions.length} transaksi\n`;
-    output += `- **Rata-rata per Transaksi**: Rp ${formatCurrency(grandTotalAll / transactions.length)}\n`;
 
     return output;
 }
@@ -180,7 +179,6 @@ function calculateStatistics(transactions) {
     return {
         totalTransactions: transactions.length,
         totalAmount: totalAmount,
-        averageTransaction: totalAmount / transactions.length,
         totalItems: totalItems
     };
 }
@@ -210,10 +208,6 @@ function displayStatistics(statistics) {
         <div class="stat-item">
             <div class="stat-value">Rp ${formatCurrency(statistics.totalAmount)}</div>
             <div class="stat-label">Total Nilai</div>
-        </div>
-        <div class="stat-item">
-            <div class="stat-value">Rp ${formatCurrency(statistics.averageTransaction)}</div>
-            <div class="stat-label">Rata-rata</div>
         </div>
         <div class="stat-item">
             <div class="stat-value">${statistics.totalItems}</div>
